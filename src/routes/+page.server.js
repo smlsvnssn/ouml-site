@@ -11,9 +11,9 @@ import { unified } from 'unified'
 
 import * as ö from 'ouml'
 
-// const url = `https://raw.githubusercontent.com/smlsvnssn/ouml/refs/heads/master/README.md`
+const url = `https://raw.githubusercontent.com/smlsvnssn/ouml/refs/heads/master/README.md`
 
-const url = `/static/README.md`
+//const url = `/static/README.md`
 
 const removeNode = (index, parent) => parent.children.splice(index, 1)
 
