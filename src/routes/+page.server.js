@@ -72,7 +72,7 @@ export const load = async ({ fetch }) => {
 		.use(getToc)
 		.use(removeToc)
 		.use(getNav)
-		.use(rehypeStarryNight)
+		//.use(rehypeStarryNight)
 		.use(rehypeStringify, { allowDangerousHtml: true })
 		.process(md)
 
