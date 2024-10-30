@@ -14,10 +14,10 @@
 		[header-end content-start]
 		 '. .    main   empty toc' 1fr 
 		 [content-end]
-		 / 1fr 2fr clamp(0%, 50%, 50rem) 1fr 4fr;
+		 / 1fr 2fr clamp(0%, 50%, 50rem) 2fr 4fr;
 
 	--navGrid: 'top logo nav empty tocHeader' / 1fr 2fr clamp(0%, 50%, 50rem)
-		1fr 4fr;
+		2fr 4fr;
 
 	--bg: var(--bgColor);
 
@@ -251,12 +251,12 @@ main {
 		scroll-snap-type: x mandatory;
 	}
 
-	a {
-		text-decoration: underline;
-	}
-
 	section {
 		grid-area: main;
+
+		a {
+			text-decoration: underline;
+		}
 	}
 
 	aside {
