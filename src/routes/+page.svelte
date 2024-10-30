@@ -47,6 +47,10 @@
 	<div class="top"></div>
 	<span class="logo"><a href="#">ouml.</a></span>
 
+	<!-- todo: github link -->
+	<!-- todo: handle scroll-snap on mobile -->
+	<!-- todo: handle mobile mobile -->
+
 	<ul>
 		<li class="title">modules:</li>
 		{#each data.nav as navItem}
