@@ -1,5 +1,5 @@
 import rehypeSlug from 'rehype-slug'
-import rehypeStarryNight from 'rehype-starry-night'
+import rehypeHighlight from 'rehype-highlight'
 import rehypeStringify from 'rehype-stringify'
 import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
@@ -66,13 +66,13 @@ export const load = async ({ fetch }) => {
 		.use(remarkToc)
 		// todo: fix some links that don't parse correctly
 		.use(remarkRehype, { allowDangerousHtml: true })
+		.use(rehypeHighlight)
 		.use(rehypeSlug)
 		// todo: optimise, visits the tree several times. Move all into the same method?
 		.use(cleanupToc) // should move to getToc, and run in new tree. (Has no effect when using stringify, solve)
 		.use(getToc)
 		.use(removeToc)
 		.use(getNav)
-		//.use(rehypeStarryNight)
 		.use(rehypeStringify, { allowDangerousHtml: true })
 		.process(md)
 

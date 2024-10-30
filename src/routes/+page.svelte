@@ -1,6 +1,6 @@
 <script>
 	import '../style.scss'
-	import '../syntax.css'
+	import '../hljs.css'
 	import * as ö from 'ouml'
 	import scrollback from 'scrollbackheader'
 
