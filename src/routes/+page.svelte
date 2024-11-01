@@ -11,7 +11,7 @@
 	const scrollToc = id => {
 		Array.from(toc.querySelectorAll('a'))
 			.find(v => v.href.includes(encodeURI(id)))
-			.scrollIntoView({ behavior: "smooth"})
+			.scrollIntoView({ behavior: 'smooth' })
 	}
 
 	function scrollbackNav(node) {
@@ -30,7 +30,6 @@
 						child.style.display = 'block'
 					child.style.height =
 						Math.max(0, cachedchildHeight - scrollY) + 'px'
-					//child.style.opacity = (cachedchildHeight-scrollY)/cachedchildHeight;
 				}
 			}
 		}
@@ -49,7 +48,7 @@
 
 	<!-- todo: github link -->
 	<!-- todo: handle scroll-snap on mobile -->
-	<!-- todo: handle mobile mobile -->
+	<!-- todo: handle mobile nicely -->
 
 	<ul>
 		<li class="title">modules:</li>
@@ -67,12 +66,12 @@
 	<span class="toc">toc</span>
 </nav>
 
-
-<main>
-	<aside bind:this={toc}>
+<aside bind:this={toc}>
+	<div class="stick">
 		{@html data.toc}
-	</aside>
-	<section>
-		{@html data.content}
-	</section>
+	</div>
+	<div class="filler"></div>
+</aside>
+<main>
+	{@html data.content}
 </main>

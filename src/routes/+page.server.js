@@ -64,7 +64,6 @@ export const load = async ({ fetch }) => {
 	let parsed = await unified()
 		.use(remarkParse)
 		.use(remarkToc)
-		// todo: fix some links that don't parse correctly
 		.use(remarkRehype, { allowDangerousHtml: true })
 		.use(rehypeHighlight)
 		.use(rehypeSlug)
