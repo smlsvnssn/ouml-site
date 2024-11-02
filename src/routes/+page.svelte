@@ -8,6 +8,8 @@
 
 	let toc
 
+	let innerWidth = $state(0)
+
 	const scrollToc = id => {
 		Array.from(toc.querySelectorAll('a'))
 			.find(v => v.href.includes(encodeURI(id)))
@@ -42,36 +44,54 @@
 	}
 </script>
 
-<nav class="main" use:scrollbackNav>
+<svelte:window bind:innerWidth />
+
+{#snippet navContent()}
 	<div class="top"></div>
-	<span class="logo"><a href="#">ouml.</a></span>
+		<span class="logo"><a href="#">ouml.</a></span>
 
-	<!-- todo: github link -->
-	<!-- todo: handle scroll-snap on mobile -->
-	<!-- todo: handle mobile nicely -->
+		<!-- todo: github link -->
 
-	<ul>
-		<li class="title">modules:</li>
-		{#each data.nav as navItem}
-			<li>
-				<a
-					href="#{navItem.properties.id}"
-					onclick={() => scrollToc(navItem.properties.id)}
-					>{navItem.children[0].value.toLowerCase()}</a
-				>
-			</li>
-		{/each}
-	</ul>
+		<ul>
+			<li class="title">modules:</li>
+			{#each data.nav as navItem}
+				<li>
+					<a
+						href="#{navItem.properties.id}"
+						onclick={() => scrollToc(navItem.properties.id)}
+						>{navItem.children[0].value.toLowerCase()}</a
+					>
+				</li>
+			{/each}
+		</ul>
 
-	<span class="toc">toc</span>
-</nav>
+		<span class="toc">toc</span>
+{/snippet}
+
+{#snippet nav()}
+{#if innerWidth > 920}
+	<nav class="main" use:scrollbackNav>
+		{@render navContent()}
+	</nav>
+{:else}
+<nav class="main">
+		{@render navContent()}
+	</nav>
+{/if}
+	
+{/snippet}
+
+{#if innerWidth > 920}
+	{@render nav()}
+{/if}
 
 <aside bind:this={toc}>
-	<div class="stick">
-		{@html data.toc}
-	</div>
-	<div class="filler"></div>
+	
+	{@html data.toc}
 </aside>
 <main>
+	{#if innerWidth < 920}
+		{@render nav()}
+	{/if}
 	{@html data.content}
 </main>

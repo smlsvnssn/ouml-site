@@ -41,24 +41,21 @@
 	}
 
 	@media (width < 920px) {
-		--mainGrid: [top-start] '. nav . .' [top-end bottom-start]
-			'. main . toc' [bottom-end] / 1rem calc(100vw - 5rem) 1rem
-			100vw;
+		--mainGrid: 'main toc' 100dvh / 100vw 100vw;
 
 		// prettier-ignore
 		--navGrid: 
 			[top-start] 
-			'top logo . .'
+			'logo' 
 			[top-end nav-start]
-			'. nav . tocHeader' 
+			'nav' 
 			[nav-end] 
-			/ 1rem clamp(0%, 60vw, 50rem) 2rem 1fr ;
+			/ 1fr ;
 	}
 }
 
 html {
 	line-height: 2rem;
-	display: contents;
 
 	@media (width < 920px) {
 		scroll-snap-type: x mandatory;
@@ -104,18 +101,23 @@ body {
 
 	@media (width < 920px) {
 		width: 200vw;
+		height: 100dvh;
+		gap: 0;
 	}
 }
 
 main {
 	grid-area: main;
-
 	margin-top: -3rem;
 	padding-bottom: 16rem;
 
 	@media (width < 920px) {
 		scroll-snap-align: start;
-		scroll-margin-left: 2.5rem;
+		scroll-margin-left: 1.5rem;
+		overflow-y: auto;
+		overflow-x: hidden;
+		padding: 1.5rem;
+		scroll-behavior: smooth;
 	}
 
 	a {
@@ -127,66 +129,57 @@ aside {
 	grid-area: toc;
 
 	display: grid;
-	grid-template-rows: 100vh 1fr;
+
+	position: sticky;
+	top: 0;
+	margin-top: -16rem;
+	padding: 16rem 0 16rem;
+	height: 100dvh;
+
+	overflow-y: auto;
 
 	@media (width < 920px) {
 		scroll-snap-align: start;
+		padding: 1.5rem;
+		scroll-margin-right: 0;
+		overflow-x: hidden;
 	}
 
-	.stick {
-		position: sticky;
-		top: 0;
-		margin-top: -16rem;
+	ul {
+		font-family: var(--sans);
+		font-weight: 600;
+		padding-left: 0;
+		font-size: 1.5rem;
+		letter-spacing: -0.015em;
+		font-weight: 600;
 
-		padding: 16rem 0 16rem;
-
-		height: 100vh;
-
-		overflow-y: auto;
-
-		@media (width < 920px) {
-			top: 0;
-			margin-top: 0;
-
-			padding: 3rem 2.5rem;
-			overscroll-behavior-y: contain;
+		li {
+			margin-top: 2rem;
+			a {
+				scroll-margin-top: 7rem;
+			}
 		}
 
 		ul {
+			font-size: 1rem;
+
 			li {
-				margin-top: 2rem;
-				a {
-					scroll-margin-top: 7rem;
-				}
+				margin-top: 1rem;
 			}
-			font-family: var(--sans);
-			font-weight: 600;
-			padding-left: 0;
-			font-size: 1.5rem;
-			letter-spacing: -0.015em;
-			font-weight: 600;
 
 			ul {
-				font-size: 1rem;
+				font-size: 0.875rem;
+				letter-spacing: 0;
 
 				li {
 					margin-top: 1rem;
 				}
 
 				ul {
-					font-size: 0.875rem;
-					letter-spacing: 0;
+					font-weight: 500;
 
 					li {
-						margin-top: 1rem;
-					}
-
-					ul {
-						font-weight: 500;
-
-						li {
-							margin-top: 0rem;
-						}
+						margin-top: 0rem;
 					}
 				}
 			}
@@ -220,9 +213,12 @@ nav {
 
 	@media (width < 1320px) {
 		row-gap: 0.5rem;
-	}
-	@media (width < 920px) {
 		width: 100vw !important;
+		overflow: hidden;
+	}
+
+	@media (width < 920px) {
+		row-gap: 0;
 	}
 
 	.top {
@@ -246,6 +242,10 @@ nav {
 		grid-area: logo;
 
 		font-weight: 700;
+	}
+
+	a {
+		text-decoration: none;
 	}
 
 	ul {
@@ -322,6 +322,12 @@ pre {
 	padding: 1rem 1.125rem;
 
 	overflow-x: auto;
+
+	@media (width < 920px) {
+		margin-left: -.75rem;
+		margin-right: -.75rem;
+		padding: .5rem .5rem;
+	}
 }
 
 code {
@@ -355,7 +361,8 @@ h1 {
 	font-size: 6rem;
 
 	@media (width < 920px) {
-		font-size: 4rem;
+		font-size: 3.5rem;
+		margin-bottom: 2rem;
 	}
 }
 
@@ -370,6 +377,7 @@ h2 {
 
 	@media (width < 920px) {
 		font-size: 2.5rem;
+		margin-bottom: 1.5rem;
 	}
 
 	&:has(+ h3) + h3 {
@@ -387,7 +395,8 @@ h3 {
 	font-size: 2.5rem;
 
 	@media (width < 920px) {
-		font-size: 2rem;
+		font-size: 1.75rem;
+		margin-bottom: 1.5rem;
 	}
 
 	&:has(+ h4) + h4 {
