@@ -331,7 +331,9 @@ pre {
 }
 
 code {
-	outline: 2px solid var(--code);
+	//outline: 2px solid var(--code);
+	background: none;
+	color: var(--secondary);
 	margin: 0 0.125rem;
 	display: inline-block;
 	line-height: 1.75rem;

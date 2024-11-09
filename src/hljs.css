@@ -12,14 +12,14 @@
   Colors: /blob/v0.64.0/lib/css/exports/_stacks-constants-colors.less
 */
 .hljs {
-	/* var(--highlight-color) */
-	color: #2f3337;
+	
+	color: var(--primary);
 	/* var(--highlight-bg) */
 	/* background: #f6f6f6; */
 }
 .hljs-subst {
 	/* var(--highlight-color) */
-	color: #2f3337;
+	color: var(--primary);
 }
 .hljs-comment {
 	/* var(--highlight-comment) */
@@ -123,13 +123,13 @@
 */
 	.hljs {
 		/* var(--highlight-color) */
-		color: #ffffff;
+	color: var(--primary);
 		/* var(--highlight-bg) */
 		/* background: #1c1b1b; */
 	}
 	.hljs-subst {
 		/* var(--highlight-color) */
-		color: #ffffff;
+	color: var(--primary);
 	}
 	.hljs-comment {
 		/* var(--highlight-comment) */
