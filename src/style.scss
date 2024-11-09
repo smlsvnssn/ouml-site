@@ -1,7 +1,7 @@
 :root {
-	--primary: #383300;
+	--primary: #373624;
 	--secondary: oklch(from var(--primary) l c h / 0.85);
-	--bgColor: #ffea00;
+	--bgColor: #fbf073;
 	--code: #f8f8f8;
 	--blendMode: multiply;
 
@@ -20,8 +20,8 @@
 	--mono: 'JetBrains Mono', monospace;
 
 	@media (prefers-color-scheme: dark) {
-		--primary: #e5d51a;
-		--bgColor: #101001;
+		--primary: #dbd8b6;
+		--bgColor: #2b2b23;
 		--code: #111;
 		--blendMode: screen;
 	}
