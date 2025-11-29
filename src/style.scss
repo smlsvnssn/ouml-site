@@ -63,7 +63,7 @@ html {
 }
 
 html,
-input {
+input, button {
 	box-sizing: border-box;
 	interpolate-size: allow-keywords;
 
@@ -110,6 +110,7 @@ main {
 	grid-area: main;
 	margin-top: -3rem;
 	padding-bottom: 16rem;
+	position: relative;
 
 	@media (width < 920px) {
 		scroll-snap-align: start;
