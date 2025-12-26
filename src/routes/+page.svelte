@@ -50,7 +50,7 @@
   <!-- todo: github link -->
 
   <ul>
-    <li class="title">modules:</li>
+    <!-- <li class="title">modules:</li> -->
     {#each data.nav as navItem}
       <li>
         <a
